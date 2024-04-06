@@ -1,0 +1,203 @@
+{% load static %}
+<!-- In your HTML template -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{page}}</title>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+  <script src="{% static 'js/menu.js' %}"></script>
+
+
+  <!-- Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body style="overflow: hidden;">
+  <!-- laptop-view -->
+  <!-- <div class="navbar navbar-expand-lg navbar-light" id="nav_laptop" style="background-color: #097969;">
+    <div class="container-fluid row m-0">
+      <div class="col-md-2 col-3">
+        <a class="navbar-brand" href="#">
+          <img src="/media/images/logo2.png" alt="Logo" class="logo" height="70px">
+        </a>
+      </div>
+      <div class="col-md-9 col-6 d-flex justify-content-end">
+        <div id="locationMob">
+          <ul class="navbar-nav me-4 mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle btn btn-light" href="#" id="navbarDropdownLocation" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 19px;">
+                Locations
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownLocation">
+                <li><a class="dropdown-item" href="#">Location 1</a></li>
+                <li><a class="dropdown-item" href="#">Location 2</a></li>
+                <li><a class="dropdown-item" href="#">Location 3</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        
+        <form class="d-flex" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input class="form-control search-bar me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+      </div>
+      <div class="col-md-1 col-3 d-flex justify-content-center m-0">
+        {% if request.user.is_authenticated %}
+        <a href="/account/{{request.user.id}}/details" style="text-decoration: none;" class="btn btn-link text-light">
+          <i class="fa fa-user-circle fa-2x"></i>
+        </a>
+        {% else %}
+        <a class="btn btn-success ms-2" href="/login/" style="width: 100%;">Login</a>
+        {% endif %}
+      </div>
+    </div>
+  </div> -->
+
+  <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #097969;">
+    <div class="container-fluid">
+      <div class="row" style="width: 100%;">
+        <div class="col-lg-6 col-12 d-flex align-items-center">
+          <a class="navbar-brand" href="/" id="brand" style="color: white;">
+            𝙀𝙕𝙚𝙭𝙘𝙝𝙖𝙣𝙜𝙚
+          </a>
+        </div>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-4 col-12 d-flex justify-content-end align-items-center">
+          <div id="locationMob">
+            
+          </div>
+          <form class="d-flex" method="get" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="input-group" style="width: 250px;">
+              <input class="form-control search-bar" type="search" name="search" placeholder="Search"
+                aria-label="Search">
+              <button type="submmit" class="input-group-text"><i class="fas fa-search"></i></button>
+            </div>
+          </form>
+          {% if request.user.is_authenticated %}
+          <a href="/account/{{request.user.id}}/details" style="text-decoration: none;" class="btn btn-link text-light">
+            <i class="fa fa-user-circle fa-2x" style="margin-right: 18px;"></i>
+          </a>
+          {% else %}
+          <a class="btn btn-warning ms-2" href="/login/" style="width: 100%;">Login</a>
+          {% endif %}
+          <button class="btn" id="bars">
+            <i class="fa fa-solid fa-bars fa-2x text-light" onclick="collapsedMenu(box1Id)"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid p-0 d-flex mainDiv">
+    <div class="parentBox1" id="box1Id" onclick="this.style.display='none'">
+      <div class="box1">
+        <ul style="list-style-type: none;" class="list-group p-0">
+          <h2 class="p-3">Categories</h2>
+          <a href="/{{request.user.id}}/Cars/" class="Category-link">
+            <li class="list-group-item Category">Cars</li>
+          </a>
+          <a href="/{{request.user.id}}/Mobiles/" class="Category-link">
+            <li class="list-group-item Category">Mobiles</li>
+          </a>
+          <a href="/{{request.user.id}}/Electronic_Appliances/" class="Category-link">
+            <li class="list-group-item Category">Electronic Appliances</li>
+          </a>
+          <a href="/{{request.user.id}}/Furniture/" class="Category-link">
+            <li class="list-group-item Category">Furniture</li>
+          </a>
+          <a href="/{{request.user.id}}/Fashion/" class="Category-link">
+            <li class="list-group-item Category">Fashion</li>
+          </a>
+          <a href="/{{request.user.id}}/BSH/" class="Category-link">
+            <li class="list-group-item Category">Books,Sports and Hobbies</li>
+          </a>
+        </ul>
+      </div>
+    </div>
+
+    <!-- mobile-view -->
+    <!-- <div class="navbar navbar-expand-lg navbar-light bg-primary" id="nav_mobile">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="/media/images/logo2.png" alt="Logo" class="logo" height="70px">
+      </a>
+      <div class="d-flex">
+        <form class="d-flex">
+          <input class="form-control me-2 search-bar" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+
+      </div>
+    </div>
+  </div> -->
+    <!-- <div class="container-fluid d-flex p-0 main">
+    <div class="block1 p-0" style="border: 1px solid rgb(198, 192, 192); height: 87vh; width:22%;" id="block111">
+      <ul style="list-style-type: none;" class="list-group p-0">
+        <h2 class="p-3">Categories:</h2>
+        <a href="" class="Category-link">
+          <li class="list-group-item Category">Cars</li>
+        </a>
+        <a href="" class="Category-link">
+          <li class="list-group-item Category">Mobiles</li>
+        </a>
+        <a href="" class="Category-link">
+          <li class="list-group-item Category">Electronic Appliances</li>
+        </a>
+        <a href="" class="Category-link">
+          <li class="list-group-item Category">Furniture</li>
+        </a>
+        <a href="" class="Category-link">
+          <li class="list-group-item Category">Fashion</li>
+        </a>
+        <a href="" class="Category-link">
+          <li class="list-group-item Category">Books,Sports and Hobbies</li>
+        </a>
+      </ul>
+    </div> -->
+    <div class="block2 container-fluid">
+      <h2 align="center">Products</h2>
+      <hr>
+      <div class="container-fluid d-flex">
+        <div class="row" style="width: 100%">
+          {% for product in products %}
+          <div class="col-lg-4">
+            <div class="product shadow-lg">
+              <img src="/media/{{ product.ProductImage1 }}" alt=""
+                style="height: 170px; width: 340px; background-color: rgb(174, 174, 174); border-radius: 16px; margin: 9px;object-fit: contain;">
+              <h3 align="center">₹ {{ product.Price }}</h3>
+              <h5 style="color: rgb(92, 90, 90); text-align: center;">{{ product.Title }}</h5>
+              <a class="btn btn-outline-success" href="/{{ product.ProductId }}"
+                style="margin-left: auto; margin-right: auto; display: block; width: 100px;">View</a>
+            </div>
+          </div>
+          {% endfor %}
+          
+        </div>
+      </div>
+
+
+      <div class="sellbutton">
+        <a href="/sell_item/" class="sell">Sell</a>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

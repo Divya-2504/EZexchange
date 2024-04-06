@@ -1,0 +1,69 @@
+.caro {
+    width: 50vw;
+    height: fit-content;
+    margin: 20px;
+    margin-top: 100px;
+}
+
+.caro-img {
+    width: 800px;
+    height: 400px;
+    object-fit: contain;
+    /* or contain */
+    aspect-ratio: 2;
+}
+
+#details {
+    border: 1px solid  black;
+    border-radius: 16px;
+    width: 600px;
+    padding: 20px;
+    margin: 50px;
+    margin-top: 70px;
+}
+
+.image {
+    height: fit-content;
+    width: fit-content;
+}
+
+.rounded-image {
+    margin-top: 40px;
+    margin-left: 0px;
+    /* left: 50%; */
+    display: block;
+    width: 150px;
+    /* Adjust width and height as needed */
+    height: 150px;
+    /* Adjust width and height as needed */
+    object-fit: cover;
+    /* Ensures the image covers the entire area */
+    border-radius: 50%;
+    /* Makes the image a circle */
+    overflow: hidden;
+    /* Hides any overflow beyond the circle */
+}
+
+.user{
+    margin-top: 30px;
+    padding: 10px;
+}
+
+@media screen and (orientation:portrait) {
+    
+.caro {
+    /* height: 20v; */
+    width: 90vw;
+    height: fit-content;
+    margin: 20px;
+    margin-top: fit-content;
+}
+#details {
+    border: 1px solid  black;
+    border-radius: 16px;
+    width: 100vw;
+    /* padding: 20px; */
+    /* margin: 50px; */
+    margin: 0;
+}   
+}

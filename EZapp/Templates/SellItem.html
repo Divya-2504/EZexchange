@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page}}</title>
+    <link rel="stylesheet" href="{% static 'css/SellItem.css'%}">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light" style="background-color: #097969;">
+        <a href="/" class="btn btn-link text-light">
+            <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>
+        </a>
+    </nav>
+    <div class="parentCategory">
+        <div class="Category1">
+            <h1 align="center">Select Category</h1>
+            <ul style="list-style-type: none;" class="list-group p-0">
+                <a href="/sell_item/{{request.user.id}}/Cars/" class="Category-link radius1">
+                    <li class="list-group-item Category">Cars<span class="arrow"><i
+                                class="fa fa-2x fa-solid fa-caret-right"></i></span></li>
+                </a>
+                <a href="/sell_item/{{request.user.id}}/Mobiles/" class="Category-link">
+                    <li class="list-group-item Category">Mobiles<span class="arrow"><i
+                                class="fa fa-2x fa-solid fa-caret-right"></i></span></li>
+                </a>
+                <a href="/sell_item/{{request.user.id}}/Electronic_Appliances/" class="Category-link">
+                    <li class="list-group-item Category">Electronic Appliances<span class="arrow"><i
+                                class="fa fa-2x fa-solid fa-caret-right"></i></span></li>
+                </a>
+                <a href="/sell_item/{{request.user.id}}/Furniture/" class="Category-link">
+                    <li class="list-group-item Category">Furniture<span class="arrow"><i
+                                class="fa fa-2x fa-solid fa-caret-right"></i></span></li>
+                </a>
+                <a href="/sell_item/{{request.user.id}}/Fashion/" class="Category-link">
+                    <li class="list-group-item Category">Fashion<span class="arrow"><i
+                                class="fa fa-2x fa-solid fa-caret-right"></i></span></li>
+                </a>
+                <a href="/sell_item/{{request.user.id}}/BSH/" class="Category-link radius2">
+                    <li class="list-group-item Category">Books,Sports and Hobbies<span class="arrow"><i
+                                class="fa fa-2x fa-solid fa-caret-right"></i></span></li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <!-- <div class="Category1">
+        <h1 align="center">Select Category</h1>
+        <ul style="list-style-type: none;" class="list-group p-0">
+            <a href="/sell_item/{{request.user.id}}/Cars/" class="Category-link radius1">
+                <li class="list-group-item Category">Cars<span class="arrow"><i
+                            class="fa fa-2x fa-solid fa-caret-right"></i></span></li>
+            </a>
+            <a href="/sell_item/{{request.user.id}}/Mobiles/" class="Category-link">
+                <li class="list-group-item Category">Mobiles<span class="arrow"><i
+                            class="fa fa-2x fa-solid fa-caret-right"></i></span></li>
+            </a>
+            <a href="/sell_item/{{request.user.id}}/Electronic_Appliances/" class="Category-link">
+                <li class="list-group-item Category">Electronic Appliances<span class="arrow"><i
+                            class="fa fa-2x fa-solid fa-caret-right"></i></span></li>
+            </a>
+            <a href="/sell_item/{{request.user.id}}/Furniture/" class="Category-link">
+                <li class="list-group-item Category">Furniture<span class="arrow"><i
+                            class="fa fa-2x fa-solid fa-caret-right"></i></span></li>
+            </a>
+            <a href="/sell_item/{{request.user.id}}/Fashion/" class="Category-link">
+                <li class="list-group-item Category">Fashion<span class="arrow"><i
+                            class="fa fa-2x fa-solid fa-caret-right"></i></span></li>
+            </a>
+            <a href="/sell_item/{{request.user.id}}/BSH/" class="Category-link radius2">
+                <li class="list-group-item Category">Books,Sports and Hobbies<span class="arrow"><i
+                            class="fa fa-2x fa-solid fa-caret-right"></i></span></li>
+            </a>
+        </ul>
+    </div> -->
+</body>
+
+</html>

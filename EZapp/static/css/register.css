@@ -1,0 +1,58 @@
+/* Style for the file input container */
+
+*{
+  margin: 0;
+  padding: 0;
+}
+.file-input-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  /* border: 2px dashed #ccc; */
+  /* border-radius: 10px; */
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Style for the camera icon */
+.file-input-icon {
+  font-size: 60px;
+  /* color: #ccc; */
+  /* margin-top: 40px;
+  margin-left: 40px; */
+}
+
+/* Style to hide the default file input */
+.custom-file-input {
+  display: none;
+}
+
+.camera {
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+#register{
+  margin-top: 50px;
+  /* overflow: hidden; */
+  height: fit-content;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#registerInnerForm{
+  height: max-content;
+  width: 40%;
+}
+
+@media screen and (orientation:portrait) {
+  #register{
+    margin-top:0px;
+    height: 100vh;
+  }
+  #registerInnerForm{
+      width: 80%;
+  }
+}

@@ -1,0 +1,46 @@
+.parentCategory{
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
+
+.Category1 {
+    margin-top: 80px;
+    border: 2px solid gray;
+    height: fit-content;
+    width: 50%;
+    /* margin-left: 350px;
+    margin-top: 30px; */
+    border-radius: 16px;
+}
+.radius1{
+    padding-top: 27px;
+}
+.radius2{
+    border-radius: 0 0 16px 16px;
+}
+
+.Category-link {
+    text-decoration: none;
+    position: relative;
+    font-size: 20px;
+}
+
+.Category:hover {
+    background-color: rgb(234, 225, 225);
+    background-size: 20px;
+}
+
+.arrow {
+    position: absolute;
+    right: 20px;    
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media screen and (orientation:portrait) {
+    .Category1{
+      width: 80%;
+    }
+}
+

@@ -1,0 +1,131 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page}}</title>
+    <link rel="stylesheet" href="{% static 'css/Mobiles.css'%}">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light" style="background-color: #097969;">
+        <a href="/sell_item/" class="btn btn-link text-light">
+            <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>
+
+        </a>
+    </nav>
+    <div class="container outer">
+        <h2 style="margin: 10px;">Include Some Details</h2>
+        <hr>
+
+        <form method="post" enctype="multipart/form-data" class="container mt-4">
+            {% csrf_token %}
+            <div class="mb-3 content">
+                <label class="form-label title">Brand: </label>
+                <div class="input-group">
+                    <input type="text" class="form-control input" name="Brand">
+                </div>
+            </div>
+            <div class="mb-3 content">
+                <label class="form-label title">Title: </label>
+                <div class="input-group">
+                    <input type="text" class="form-control input" name="Title">
+                </div>
+            </div>
+            <div class="mb-3 content">
+                <label class="form-label title">Description: </label>
+                <div class="input-group">
+                    <textarea type="text" class="form-control input Description" name="Description"></textarea>
+                </div>
+            </div>
+            <div class="mb-3 content">
+                <label class="form-label title">Price: </label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-rupee-sign"></i></span>
+                    <input type="number" class="form-control input" name="Price" min="0">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sell_photo" class="form-label title">Photos:</label>
+                <div class="file-input-icon">
+                    <div class="file-input-container" id="fileInputContainer">
+                        <label for="sell_photo_1">
+                            <input type="file" class="custom-file-input" id="sell_photo_1" name="ProductImage1"
+                                accept="image/*">
+                            <i class="fas fa-camera camera" id="camera_1"></i>
+                        </label>
+                        <label for="sell_photo_2">
+                            <input type="file" class="custom-file-input" id="sell_photo_2" name="ProductImage2"
+                                accept="image/*">
+                            <i class="fas fa-camera camera" id="camera_2"></i>
+                        </label>
+                        <label for="sell_photo_3">
+                            <input type="file" class="custom-file-input" id="sell_photo_3" name="ProductImage3"
+                                accept="image/*">
+                            <i class="fas fa-camera camera" id="camera_3"></i>
+                        </label>
+                        <label for="sell_photo_4">
+                            <input type="file" class="custom-file-input" id="sell_photo_4" name="ProductImage4"
+                                accept="image/*">
+                            <i class="fas fa-camera camera" id="camera_4"></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 content">
+                <label class="form-label title">Location: </label>
+                <div class="input-group">
+                    <select class="form-select" name="Location">
+                        <option disabled selected hidden>--select here--</option>
+                        <optgroup label="India">
+                            <option value="Gujarat">Gujarat</option>
+                            <option>Rajasthan</option>
+                        </optgroup>
+                        <optgroup label="Canada">
+                            <option>Ontario</option>
+                            <option>Kitchener</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <hr>
+            <h3>Review Details</h3>
+
+            <div class="box2">
+                <div class="image">
+                    <img src="/media/{{ image.Image }}" alt="image" class="rounded-image">
+                </div>
+                <div class="details">
+                    <h2 class="name"></h2>
+                    <div class="mb-3 content">
+                        <label class="form-label title">Name : </label>
+                        <div class="input-group">
+                            <input type="text" class="form-control input" name="PuserName"
+                                value="{{request.user.first_name}} {{request.user.last_name}}">
+                        </div>
+                    </div>
+                    <div class="mb-3 content">
+                        <label class="form-label title">Email : </label>
+                        <div class="input-group">
+                            <input type="email" class="form-control input" name="Pusermail" value="{{request.user.email}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="post-button"><button class="btn btn-success">Post</button></div>
+        </form>
+    </div>
+
+    <!-- Include your JavaScript file -->
+    <script src="{% static 'js/Mobiles.js'%}"></script>
+</body>
+</html>

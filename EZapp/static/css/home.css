@@ -1,0 +1,83 @@
+.navbar {
+  position: fixed;
+}
+
+.navbar .dropdown-menu {
+  background-color: #f8f9fa;
+}
+
+#nav_mobile {
+  display: none;
+}
+
+.main {
+  position: fixed;
+}
+
+
+.Category-link {
+  text-decoration: none;
+}
+
+.Category:hover {
+  background-color: rgb(234, 225, 225);
+  background-size: 20px;
+}
+
+.block2 {
+  /* max-height: 92vh; */
+  /* Set maximum height to 87% of viewport height */
+  width: 100%;
+  margin: 0 auto;/* Center the block horizontally */
+  overflow-y: auto;/* Add vertical scrollbar when content overflows */
+  padding: 20px;/* Add padding as needed */
+}
+
+.sellbutton {
+  text-align: center;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  transform: translate(-50%, -50%);
+}
+
+.sell {
+  display: inline-block;
+  padding: 10px 20px;/* Adjust padding as needed */
+  border-radius: 20px;/* Makes the button capsule-shaped */
+  background-color: orange;
+  /* rgb(231, 98, 27);Set your desired background color */
+  color: black;/* Set text color */
+  text-decoration: none;/* Remove underline */
+  transition: background-color 0.3s;/* Smooth transition on hover */
+}
+
+.product{
+  border: 1px solid gray;
+  border-radius: 16px;
+  /* flex-wrap: wrap; */
+  width: 378px; 
+  height: 500px;
+  /* margin-top: 40px;  */ 
+  height: 320px;
+  margin: 9px;
+  overflow-y: hidden;
+  padding: 9px;
+
+}
+
+
+/* .sell:hover {
+  background-color: rgba(231, 98, 27, 0.87);/* Change background color on hover 
+} */
+
+@media (orientation:portrait) {
+
+  #locationMob,#block111{
+    display: none;
+  }
+  #brand{
+    margin: auto;
+  }
+
+}

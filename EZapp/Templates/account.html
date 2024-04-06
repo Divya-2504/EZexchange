@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page}}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/account.css' %}">
+    <script src="{% static 'js/account.js' %}"></script>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+    <script src="{% static 'js/menu.js' %}"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #097969;">
+        <div class="row" style="width: 100vw;">
+            <div class="col-6" style="float: left;">
+                <a href="/" class="btn btn-link text-light">
+                    <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+                <button class="btn" id="bars">
+                    <i class="fa fa-solid fa-bars fa-2x text-light" onclick="collapsedMenu(box1Id)"></i>
+                </button>
+                <!-- <a href="/" class="btn btn-link text-light">
+                </a> -->
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid p-0 d-flex mainDiv">
+        <div class="parentBox1" id="box1Id" onclick="this.style.display='none'">    
+            <div class="box1">
+                <ul style="list-style-type: none;" class="list-group p-0">
+                    <a href="/account/{{request.user.id}}/details" class="Category-link active">
+                        <li class="list-group-item Category">Account</li>
+                    </a>
+                    <a href="/account/{{request.user.id}}/sell" class="Category-link">
+                        <li class="list-group-item Category">Sold item</li>
+                    </a>
+                    <a href="/logout/" class="Category-link">
+                        <li class="list-group-item Category">Logout</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="box2">
+            <div class="image container-fluid">
+                <img src="/media/{{ image.Image }}" alt="image" class="rounded-image">
+            </div>
+            <div class="details container-fluid">
+                <h2 class="name">{{request.user.first_name}} {{request.user.last_name}}</h2>
+                <p class="email">Email : {{request.user.email}}<br>
+                    Username : {{request.user.username}}<br>
+                    Password : *******</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

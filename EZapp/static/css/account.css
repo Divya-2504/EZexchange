@@ -1,0 +1,36 @@
+/* .box1 {
+  border: 1px solid rgb(198, 192, 192);
+  height: 90.9vh;
+  min-width: fit-content;
+  width: 16%;
+} */
+
+.Category-link {
+  text-decoration: none;
+}
+
+.Category:hover {
+  background-color: rgb(234, 225, 225);
+  background-size: 20px;
+}
+
+.image{
+  height: fit-content;
+  width: fit-content;
+}
+.rounded-image {
+  margin-top: 20px;
+  margin-left: 20px;
+  /* left: 50%; */
+  display: block;
+  width: 250px; /* Adjust width and height as needed */
+  height: 250px; /* Adjust width and height as needed */
+  object-fit: cover; /* Ensures the image covers the entire area */
+  border-radius: 50%; /* Makes the image a circle */
+  overflow: hidden; /* Hides any overflow beyond the circle */
+}
+.details{
+  margin-top: 30px;
+  margin-left: 100px;
+  font-size: 24px;
+}

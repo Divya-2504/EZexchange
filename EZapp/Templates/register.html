@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page}}</title>
+    <script src="{% static 'js/register.js'%}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cars.css' %}">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <!-- Font Awesome JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light" style="background-color: #097969;">
+        <a href="/" class="btn btn-link text-light">
+            <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>
+        </a>
+    </nav>
+    <div class="container" id="register">
+        <form class="card p-3 shadow-lg" method="post" enctype="multipart/form-data" id="registerInnerForm">
+            {% csrf_token %}
+            <h2>Register</h2>
+            <hr>
+            {% if messages %}
+            <div class="alert alert-warning" role="alert">
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="mb-3">
+                <label for="fname" class="form-label">First name:</label>
+                <input type="text" class="form-control" name="first_name" id="fname">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Last name:</label>
+                <input type="text" class="form-control" name="last_name" id="exampleInputEmail">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Username</label>
+                <input type="text" class="form-control" name="username" id="exampleInputEmail1">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" id="exampleInputEmail1">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+            </div>
+            <div class="form-group">
+                <label for="profile_photo">Profile Photo:</label><br>
+                <label class="file-input-icon" for="profile_photo_input">
+                    <div class="file-input-container" id="fileInputContainer">
+                        <label for="profile_photo_input">
+                            <input type="file" class="custom-file-input" id="profile_photo_input" name="profile_photo"
+                                accept="image/*">
+                            <i class="fas fa-camera camera" id="camera_1"></i>
+                        </label>
+                    </div>
+                </label>
+            </div>
+            <p>Already have account ? <a href="/login/">login here!</a></p>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('fileInputContainer').addEventListener('change', function(event) {
+    const fileInput = event.target;
+    const file = fileInput.files[0];
+    if (file) {
+        alert(`Image ${file.name} uploaded successfully.`);
+    }
+});
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page}}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/product_details.css' %}">
+    <script src="{% static 'js/product_details.js' %}"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light" style="background-color: #097969;">
+        <a href="/" class="btn btn-link text-light">
+            <i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i>
+        </a>
+    </nav>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12" style="display: flex; justify-content: center;">
+                <div class="caro">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="/media/{{data.ProductImage1}}" class="d-block w-100 caro-img">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/media/{{data.ProductImage2}}" class="d-block w-100 caro-img">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/media/{{data.ProductImage3}}" class="d-block w-100 caro-img">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/media/{{data.ProductImage4}}" class="d-block w-100 caro-img">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12" style="display: flex; justify-content: center;">
+                <div id="details" class="container-fluid">
+                    <h2>{{data.Title}}</h2>
+                    <p style="font-size: 20px; color: rgb(99, 98, 98);">{{data.Description}}</p>
+                    <h2>Price: ₹ {{data.Price}}</h2>
+                    {% if data.CategoryId_id == 1%}
+                    <p>Brand: {{data.Brand}}</p>
+                    <p>Year {{data.Year}}</p>
+                    <p>Fuel: {{data.Fuel}}</p>
+                    <p>Transmission: {{data.Transmission}}</p>
+                    <p>KM driven: {{data.KM_driven}}</p>
+                    {% endif %}
+                    {% if data.CategoryId_id == 2%}
+                    <p>Brand: {{data.Brand}}</p>
+                    {% endif %}
+                    <p>Location: {{data.Location}}</p>
+                    <hr>
+                    <h4>Seller details: </h4>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-6 col-sm-12">
+                                <div class="image container-fluid">
+                                    <img src="/media/{{ user_image.Image }}" alt="image" class="rounded-image">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-sm-12">
+                                <div class="container-fluid user">
+                                <h2 class="name">{{user.first_name}} {{user.last_name}}</h2>
+                                <p class="email">Mail: {{user.email}}<br>
+                                    <a href="send_email/{{request.user.id}}/{{user.id}}/" class="btn btn-success" style="margin-top: 30px;margin-left: 70px; width: 100px; height: 47px;text-align: center;padding: 9px;font-size: 18px;">Buy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+</body>
+
+</html>

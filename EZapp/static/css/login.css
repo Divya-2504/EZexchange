@@ -1,0 +1,16 @@
+#login{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#loginInnerForm{
+    height: fit-content;
+    width: 40%;
+}
+
+@media screen and (orientation:portrait) {
+    #loginInnerForm{
+        width: 80%;
+    }
+}
