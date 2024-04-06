@@ -8,6 +8,9 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
+
+Created By : Divya Rathod
+Date : 6th April 2024
 """
 
 from pathlib import Path
